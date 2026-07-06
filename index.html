@@ -90,6 +90,7 @@
       object-fit: contain;
       z-index: 0;
       display: none;
+       filter: brightness(1.15);
     }
 
     #escena-video {
@@ -324,7 +325,7 @@ function sonarClick() {
   osc.type = 'square';
   osc.frequency.setValueAtTime(520, audioCtx.currentTime);
   osc.frequency.exponentialRampToValueAtTime(260, audioCtx.currentTime + 0.08);
-  gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+  gain.gain.setValueAtTime(0.06, audioCtx.currentTime);
   gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
   osc.start(); osc.stop(audioCtx.currentTime + 0.1);
 }
@@ -712,6 +713,7 @@ function irA(id) {
       bg.style.display = 'none';
       vid.style.display = 'block';
       vid.src = nodo.imagen;
+      vid.volume = 0.5;
       vid.load();
       vid.play().catch(() => {});
     } else {
